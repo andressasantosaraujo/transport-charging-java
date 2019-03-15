@@ -35,11 +35,4 @@ public class AccountCredentials implements Serializable {
         this.username = username;
         this.password = password;
     }
-
-    @JsonCreator
-    public AccountCredentials(@JsonProperty("id") String id, @JsonProperty("username") String username, @JsonProperty("password") String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
 }
