@@ -33,8 +33,8 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
                 .readValue(req.getInputStream(), AccountCredentials.class);
         Authentication retorno = getAuthenticationManager().authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        creds.getUsername(),
-                        creds.getPassword(),
+                        creds.getName(),
+                        creds.getKey(),
                         Collections.emptyList()
                 )
         );

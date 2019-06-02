@@ -21,18 +21,18 @@ public class AccountCredentials implements Serializable {
 
     @Getter
     @Setter
-    private String username;
+    private String name;
     @Getter
     @Setter
-    private String password;
+    private String key;
 
     @JsonCreator
     public AccountCredentials() {
     }
 
     @JsonCreator
-    public AccountCredentials(@JsonProperty("username") String username,@JsonProperty("password") String password) {
-        this.username = username;
-        this.password = password;
+    public AccountCredentials(@JsonProperty("name") String username,@JsonProperty("key") String password) {
+        this.name = username;
+        this.key = password;
     }
 }

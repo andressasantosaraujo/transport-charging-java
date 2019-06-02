@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
@@ -17,13 +18,15 @@ public class MongoUserDetailsService implements UserDetailsService{
     private AccountCredentialsRepository repository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AccountCredentials user = repository.findByUsername(username);
+        AccountCredentials user = repository.findByName(username);
         if(user == null) {
             throw new UsernameNotFoundException("User not found");
         }
 
         List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("user"));
-        User userValidation =  new User(user.getUsername(), user.getPassword(), authorities);
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        User userValidation =  new User(user.getName(), bCryptPasswordEncoder.encode(user.getKey()), authorities);
+        System.out.println("Chegou aqui " + userValidation);
         return userValidation;
     }
 }
