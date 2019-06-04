@@ -38,7 +38,6 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
                         Collections.emptyList()
                 )
         );
-        System.out.println("bora");
         return retorno;
 
     }

@@ -38,7 +38,7 @@ public class UserData implements Serializable {
     private String creditCardNumber;
     @Getter
     @Setter
-    private String NumberCreditCCV;
+    private String numberCreditCCV;
 
     public UserData(){
     }
@@ -49,7 +49,7 @@ public class UserData implements Serializable {
         this.address = address;
         this.numberAddress = numberAddress;
         this.creditCardNumber = creditCardNumber;
-        NumberCreditCCV = numberCreditCCV;
+        this.numberCreditCCV = numberCreditCCV;
         this.accountCredentials = accountCredentials;
     }
 }

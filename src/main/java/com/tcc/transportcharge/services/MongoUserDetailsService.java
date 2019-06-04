@@ -26,7 +26,6 @@ public class MongoUserDetailsService implements UserDetailsService{
         List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("user"));
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         User userValidation =  new User(user.getName(), bCryptPasswordEncoder.encode(user.getKey()), authorities);
-        System.out.println("Chegou aqui " + userValidation);
         return userValidation;
     }
 }

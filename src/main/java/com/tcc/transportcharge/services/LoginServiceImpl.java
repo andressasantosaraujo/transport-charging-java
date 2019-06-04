@@ -17,7 +17,6 @@ public class LoginServiceImpl implements LoginService {
     private static String EMAIL_ALREADY_EXIST = "Email already exist";
 
     private AccountCredentialsRepository accountCredentialsRepository;
-
     private UserDataRepository userDataRepository;
 
     @Autowired
@@ -26,12 +25,7 @@ public class LoginServiceImpl implements LoginService {
         this.userDataRepository = userDataRepository;
     }
 
-    @Override
-    public String login(String user, String password) {
-        return "ekrjkelre";
-    }
-
-    public String signIn(Register register){
+    public UserData signIn(Register register){
 
         if(accountCredentialsRepository.findByName(register.getName()) != null){
             throw new UserAlreadyExistException(USER_ALREADY_EXIST);
@@ -44,8 +38,6 @@ public class LoginServiceImpl implements LoginService {
         AccountCredentials accountCredentials = new AccountCredentials(register.getName(), register.getKey());
         UserData userData = new UserData(register.getContact(), register.getEmail(),register.getAddress(), register.getNumberAddress(), register.getCreditCardNumber(), register.getNumberCreditCCV(), accountCredentials);
         accountCredentialsRepository.save(accountCredentials);
-        userDataRepository.save(userData);
-
-        return "ok";
+        return userDataRepository.save(userData);
     }
 }

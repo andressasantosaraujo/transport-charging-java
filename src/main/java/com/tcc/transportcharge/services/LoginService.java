@@ -1,10 +1,9 @@
 package com.tcc.transportcharge.services;
 
 import com.tcc.transportcharge.entities.Register;
+import com.tcc.transportcharge.entities.UserData;
 
 public interface LoginService {
 
-    String login(String user, String password);
-
-    String signIn(Register register);
+    UserData signIn(Register register);
 }

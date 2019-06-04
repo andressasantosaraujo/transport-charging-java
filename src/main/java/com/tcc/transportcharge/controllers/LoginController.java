@@ -3,6 +3,7 @@ package com.tcc.transportcharge.controllers;
 import com.tcc.transportcharge.daos.AccountCredentialsRepository;
 import com.tcc.transportcharge.entities.AccountCredentials;
 import com.tcc.transportcharge.entities.Register;
+import com.tcc.transportcharge.entities.UserData;
 import com.tcc.transportcharge.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,8 +38,7 @@ public class LoginController {
 
     @PostMapping("/signin")
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody String signIn(@RequestBody Register register){
-        loginService.signIn(register);
-        return "name" + register.getName();
+    public @ResponseBody UserData signIn(@RequestBody Register register){
+        return loginService.signIn(register);
     }
 }
