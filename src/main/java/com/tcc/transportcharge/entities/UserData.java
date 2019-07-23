@@ -33,23 +33,15 @@ public class UserData implements Serializable {
     @Getter
     @Setter
     private String numberAddress;
-    @Getter
-    @Setter
-    private String creditCardNumber;
-    @Getter
-    @Setter
-    private String numberCreditCCV;
 
     public UserData(){
     }
 
-    public UserData(String contact, String email, String address, String numberAddress, String creditCardNumber, String numberCreditCCV, AccountCredentials accountCredentials) {
+    public UserData(String contact, String email, String address, String numberAddress, AccountCredentials accountCredentials) {
         this.contact = contact;
         this.email = email;
         this.address = address;
         this.numberAddress = numberAddress;
-        this.creditCardNumber = creditCardNumber;
-        this.numberCreditCCV = numberCreditCCV;
         this.accountCredentials = accountCredentials;
     }
 }

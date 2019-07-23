@@ -36,7 +36,7 @@ public class LoginServiceImpl implements LoginService {
         }
 
         AccountCredentials accountCredentials = new AccountCredentials(register.getName(), register.getKey());
-        UserData userData = new UserData(register.getContact(), register.getEmail(),register.getAddress(), register.getNumberAddress(), register.getCreditCardNumber(), register.getNumberCreditCCV(), accountCredentials);
+        UserData userData = new UserData(register.getContact(), register.getEmail(),register.getAddress(), register.getNumberAddress(), accountCredentials);
         accountCredentialsRepository.save(accountCredentials);
         return userDataRepository.save(userData);
     }

@@ -25,27 +25,18 @@ public class Register implements Serializable {
     @Getter
     @Setter
     private String numberAddress;
-    @Getter
-    @Setter
-    private String creditCardNumber;
-    @Getter
-    @Setter
-    private String NumberCreditCCV;
-
 
     public Register(){
 
     }
 
-    public Register(String name, String key, String contact, String email, String address, String numberAddress, String creditCardNumber, String NumberCreditCCV){
+    public Register(String name, String key, String contact, String email, String address, String NumberCreditCCV){
         this.name = name;
         this.key = key;
         this.contact = contact;
         this.email = email;
         this.address = address;
         this.numberAddress = numberAddress;
-        this.creditCardNumber = creditCardNumber;
-        this.NumberCreditCCV = NumberCreditCCV;
     }
 
 }
