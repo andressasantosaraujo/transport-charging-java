@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 //@RequestMapping("user")
+@CrossOrigin(origins = "*")
 public class LoginController {
 
     private LoginService loginService;
@@ -36,6 +37,7 @@ public class LoginController {
         return "blabla";
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/signin")
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody UserData signIn(@RequestBody Register register){
