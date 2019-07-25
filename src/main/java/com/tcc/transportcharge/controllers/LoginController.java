@@ -37,7 +37,6 @@ public class LoginController {
         return "blabla";
     }
 
-    @CrossOrigin(origins = "*")
     @PostMapping("/signin")
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody UserData signIn(@RequestBody Register register){
